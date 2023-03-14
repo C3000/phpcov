@@ -98,7 +98,7 @@ class ExecuteCommand extends BaseCommand
      *
      * @return null|int null or 0 if everything went fine, or an error code
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coverage = new CodeCoverage;
 
@@ -112,5 +112,7 @@ class ExecuteCommand extends BaseCommand
         $coverage->stop();
 
         $this->handleReports($coverage, $input, $output);
+
+        return 0;
     }
 }
